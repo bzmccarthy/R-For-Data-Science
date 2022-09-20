@@ -86,3 +86,6 @@ ggplot(data = diamonds) +
 ggplot(data = diamonds) +
   geom_bar(mapping = aes(x = cut, fill = clarity), position = 'dodge')
 
+# Flipped coords
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot() + coord_flip()
