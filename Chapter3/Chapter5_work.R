@@ -85,3 +85,18 @@ batters %>%
   geom_smooth(se = FALSE)
 
 
+not_cancelled %>%
+  group_by(year, month, day) %>%
+  summarise(
+    avg_delay1 = mean(arr_delay),
+    avg_delay2 = mean(arr_delay[arr_delay > 0])
+  )
+
+flights_sml %>%
+  group_by(year, month, day) %>%
+  filter(rank(desc(arr_delay)) < 10)
+
+popular_dests <- flights %>%
+  group_by(dest) %>%
+  filter(n() > 10865)
+
